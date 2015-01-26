@@ -1,16 +1,13 @@
 jQuery(window).load(function(){
-	var windows = document.getElementsByClassName("titlebar");
-
-
-	if(windows.length <= 0){
-		alert("Chat windows not found");
-	}
-	else {
 
 		var resize = false;
 		var close = true;
+		var classNames = [
+		"titlebar"
+		];
 
-		jQuery(windows).mousedown(function(e){
+		jQuery(document).mousedown(function(e){
+		if($(e.target).parents(".titlebar").length > 0){
 			resize = true;
 			close = true;
 			var closeTimeout = setTimeout(function(){
@@ -75,36 +72,34 @@ jQuery(window).load(function(){
 				
 			});
 
-			jQuery(document).mouseup(function(){
-				resize = false;
-				clearTimeout(closeTimeout);
-				var parentOpened = $(parent).closest(".fbNub");
-				if(!close){
-					setTimeout(function(){
-						$(parentOpened).addClass("opened");
-					},1);
-				}
-				else if(close){
-					setTimeout(function(){
-						$(parentOpened).removeClass("opened");
-					},1);
-				}
+				jQuery(document).mouseup(function(){
+					resize = false;
+					clearTimeout(closeTimeout);
+					var parentOpened = $(parent).closest(".fbNub");
+					if(!close){
+						setTimeout(function(){
+							$(parentOpened).addClass("opened");
+						},1);
+					}
+					else if(close){
+						setTimeout(function(){
+							$(parentOpened).removeClass("opened");
+						},1);
+					}
 
-				close = true;
+					close = true;
 
-				$(".titlebar").css({
-					'-webkit-user-select': 'text',
-					'-moz-user-select': 'text',
-					'-ms-user-select': 'text',
-					'-o-user-select': 'text',
-					'user-select': 'text',
-					'cursor': 'pointer'
+					$(".titlebar").css({
+						'-webkit-user-select': 'text',
+						'-moz-user-select': 'text',
+						'-ms-user-select': 'text',
+						'-o-user-select': 'text',
+						'user-select': 'text',
+						'cursor': 'pointer'
+					});
+
+					$(document).off("mouseup");
 				});
-
-				// Remove the event listener so it doesn't add on every click
-
-				$(document).off();
-			});
+			}
 		});
-	}
 });
