@@ -8,3 +8,6 @@ Just drag and drop the Facebook Chat Resizer.crx file into your Google Chrome ex
 ## Usage
 
 After the installation, reload the page and now you are good to go. Now you are able to resize the chat windows just by clicking and holding chat blue titles and by moving mouse up and down!
+
+## Just an quick screen shot
+![alt tag](https://raw.githubusercontent.com/Lukakva/FacebookChatResizer/master/screenshot.png)
