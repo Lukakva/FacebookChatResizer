@@ -1,0 +1,26 @@
+{
+    "manifest_version": 2,
+
+    "name": "Faceook Chat Resizer",
+    "description": "This Extension allows you to resize chat windows as high as you like!",
+    "version": "0.1",
+
+    "permissions": [
+        "*://www.facebook.com/*"
+    ],
+
+    "icons": { 
+		"16": "Images/icon16.png",
+		"32": "Images/icon32.png",
+    	"48": "Images/icon48.png",
+    	"64": "Images/icon64.png",
+     	"128": "Images/icon128.png"
+     },
+
+    "content_scripts": [
+	    {
+	      "matches": ["https://www.facebook.com/*"],
+	      "js": ["jquery.js", "script.js"]
+	    }
+  	]
+}
