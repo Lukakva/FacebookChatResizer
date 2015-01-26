@@ -34,7 +34,6 @@ jQuery(window).load(function(){
 				'cursor': 'ns-resize'
 			});
 
-
 			var innerMaxHeight = parseInt($(parent).css("max-height").replace(/px/,""));
 			innerMaxHeight = innerMaxHeight - textareaContainerHeight - 27;
 
@@ -99,6 +98,7 @@ jQuery(window).load(function(){
 					});
 
 					$(document).off("mouseup");
+					$(document).off("mousemove");
 				});
 			}
 		});
